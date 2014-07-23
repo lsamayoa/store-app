@@ -1,0 +1,46 @@
+<div class="btn-toolbar list-toolbar">
+    <div class="btn-group">
+        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fa fa-envelope-o"></i>
+        </button>
+        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fa fa-comments-o"></i>
+        </button>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fa fa-trash-o"></i>
+        </button>
+    </div>
+    <div class="btn-group pull-right">
+        <a class="btn btn-default disabled">Page 1 of 1</a>
+        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fa fa-angle-left"></i>
+        </button>
+        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fa fa-angle-right"></i>
+        </button>
+    </div>
+</div>
+<div class="table-responsive" ng-init="find()">
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th><input type="checkbox"></th>
+                <th>Client</th>    
+                <th>Balance</th>
+                <th>Updated</th>
+                <th>Created</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="client in clients | filter:filter">
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td> <a data-ng-href="#!/client/{{client._id}}">{{client.firstName + ' ' + client.lastName}}</a> <small>{{client.emails[0]}}</br>{{client.phones[0]}}</small></td>
+                <td>{{client.account.balance | currency:"GTQ"}}</td>
+                <td>{{client.updated| date:'shortDate'}}</td>
+                <td>{{client.created | date:'shortDate'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="alert alert-warning text-center" data-ng-hide="!clients.$resolved || clients.length">
+    No Clients yet, why don't you <a href="/#!/clients/create">create one</a>?
+</div>

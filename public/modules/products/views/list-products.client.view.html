@@ -1,0 +1,46 @@
+<toaster-container toaster-options="{'time-out': 3000, 'close-button':true}"></toaster-container>
+<div class="btn-toolbar list-toolbar">
+    <div class="btn-group">
+        <button type="button" class="btn btn-default" title="Mail"><i class="fa fa-envelope-o"></i> Email Barcodes
+        </button>
+        <button type="button" class="btn btn-default" title="Print" ng-click="uncheckAll()"><i class="fa fa-print"></i> Print Barcodes
+        </button>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default" title="Delete" ng-click="showRemoveSelection()"><i class="fa fa-trash-o"></i> Delete Products
+        </button>
+    </div>
+    <div class="btn-group pull-right">
+        <a class="btn btn-default disabled">Page 1 of 1</a>
+        <button type="button" class="btn btn-default" title="Prev Page"><i class="fa fa-angle-left"></i>
+        </button>
+        <button type="button" class="btn btn-default" title="Next Page"><i class="fa fa-angle-right"></i>
+        </button>
+    </div>
+</div>
+<div class="table-responsive" ng-init="find()">
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th><input type="checkbox" ng-click="selectAll($event)" ></th>
+                <th>Product</th>    
+                <th>Price</th>
+                <th>Description</th>
+                <th>Updated</th>
+                <th>Created</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="product in products track by product._id | filter:filter">
+                <td>
+                    <input type="checkbox" checklist-model="selection.items" checklist-value="product._id">
+                </td>
+                <td> <a data-ng-href="#!/product/{{product._id}}">{{product.name}}</a></td>
+                <td>{{product.price | currency : 'GTQ'}}</td>
+                <td>{{product.description}}</td>
+                <td>{{user.updated| date:'shortDate'}}</td>
+                <td>{{user.created | date:'shortDate'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

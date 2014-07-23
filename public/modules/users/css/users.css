@@ -1,0 +1,39 @@
+@media (min-width: 992px) {
+	.nav-users {
+		position: fixed;
+	}
+}
+
+.remove-account-container {
+	display: inline-block;
+	position: relative;
+}
+
+.btn-remove-account {
+	top: 10px;
+	right: 10px;
+	position: absolute;
+}
+
+.users-view.ng-leave,
+.users-view.ng-enter{
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+
+.users-view.ng-enter{
+	-webkit-animation: fadeInLeft 1s;
+	-moz-animation: fadeInLeft 1s;
+	animation: fadeInLeft 1s;
+}
+
+.users-view.ng-leave{
+	-webkit-animation: fadeOutRight 1s;
+	-moz-animation: fadeOutRight 1s;
+	animation: fadeOutRight 1s;
+}
+
+.list-toolbar{
+	margin-bottom: 15px;
+}

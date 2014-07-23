@@ -1,0 +1,44 @@
+<toaster-container toaster-options="{'time-out': 3000, 'close-button':true}"></toaster-container>
+<div class="btn-toolbar list-toolbar">
+    <div class="btn-group">
+        <button type="button" class="btn btn-default" title="Mail"><i class="fa fa-envelope-o"></i>
+        </button>
+        <button type="button" class="btn btn-default" title="Sms" ng-click="uncheckAll()"><i class="fa fa-comments-o"></i>
+        </button>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default" title="Delete" ng-click="showRemoveSelection()"><i class="fa fa-trash-o"></i>
+        </button>
+    </div>
+    <div class="btn-group pull-right">
+        <a class="btn btn-default disabled">Page 1 of 1</a>
+        <button type="button" class="btn btn-default" title="Prev Page"><i class="fa fa-angle-left"></i>
+        </button>
+        <button type="button" class="btn btn-default" title="Next Page"><i class="fa fa-angle-right"></i>
+        </button>
+    </div>
+</div>
+<div class="table-responsive" ng-init="find()">
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th><input type="checkbox" ng-click="selectAll($event)" ></th>
+                <th>User</th>    
+                <th>Roles</th>
+                <th>Updated</th>
+                <th>Created</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in users track by user._id | filter:filter">
+                <td>
+                    <input type="checkbox" checklist-model="selection.items" checklist-value="user._id">
+                </td>
+                <td> <a data-ng-href="#!/user/{{user._id}}">{{user.displayName}}</a> <small>{{user.email}}</small></td>
+                <td><span data-ng-repeat="role in user.roles" class="label label-info">{{role}}</span></td>
+                <td>{{user.updated| date:'shortDate'}}</td>
+                <td>{{user.created | date:'shortDate'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

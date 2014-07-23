@@ -1,0 +1,42 @@
+.decipher-tags{
+  margin:0;
+  border-radius: 5px;
+  background: #eee;
+}
+
+.decipher-tags .decipher-tags-input{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.content {
+	margin-top: 50px;
+}
+.undecorated-link:hover {
+	text-decoration: none;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	display: none !important;
+}
+.main-view{
+	min-height: 65px;
+}
+.ui-view-container {
+  position: relative;
+}
+.main-view.ng-enter, .main-view.ng-leave {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.main-view.ng-enter {
+  -webkit-animation: fadeInDown 1s;
+  -moz-animation: fadeInDown 1s;
+  animation: fadeInDown 1s;
+}
+
+.main-view.ng-leave {
+  -webkit-animation: fadeOutDown 1s;
+  -moz-animation: fadeOutDown 1s;
+  animation: fadeOutDown 1s;
+}

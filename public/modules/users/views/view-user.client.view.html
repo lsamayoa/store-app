@@ -1,0 +1,43 @@
+<section ng-init="showOne()">
+	<div class="panel panel-default">
+	    <div class="panel-heading">
+	        <h3 class="panel-title">{{user.displayName}}</h3>
+	    </div>
+	    <div class="panel-body">
+	        <div class="form" autocomplete="off">
+	            <div class="form-group col-sm-12">
+	                <label for="username">* Username</label>
+	                <input type="text" id="username" name="username" class="form-control" data-ng-model="user.username" placeholder="Username">
+	            </div>
+	            <div class="form-group col-sm-6">
+	                <label for="firstName">* First Name</label>
+	                <input type="text" id="firstName" name="firstName" class="form-control" data-ng-model="user.firstName" placeholder="First Name">
+	            </div>
+	            <div class="form-group col-sm-6">
+	                <label for="lastName">* Last Name</label>
+	                <input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="user.lastName" placeholder="Last Name">
+	            </div>
+	            <div class="form-group col-sm-12">
+	                <label for="email">* Email</label>
+	                <input type="text" id="email" name="email" class="form-control" data-ng-model="user.email" placeholder="Email">
+	            </div>
+	            <div class="form-group col-sm-6">
+	                <label for="password">* Password</label>
+	                <input type="password" id="password" name="password" class="form-control" data-ng-model="user.password" placeholder="Password">
+	            </div>
+	            <div class="form-group col-sm-6">
+	                <label for="passwordConfirm">* Repeat Password</label>
+	                <input type="password" id="passwordConfirm" name="passwordConfirm" class="form-control" data-ng-model="user.passwordConfirmation" placeholder="Password Confirmation">
+	            </div>
+	            <div class="form-group col-sm-12">
+	                <label for="passwordConfirm">* Groups</label>
+	                <br>
+	                <label ng-repeat="role in authentication.roles">
+	                    <input type="checkbox" checklist-model="user.roles" checklist-value="role"> {{role}}
+	                </label>
+	            </div>
+	        </div>
+	    </div>
+	    <div class="panel-footer clearfix"><small class="pull-right">* required fields</small></div>
+	</div>
+</section>

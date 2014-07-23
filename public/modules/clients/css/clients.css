@@ -1,0 +1,80 @@
+.financial{
+	font-weight: 200;
+}
+
+.client-title p{
+	font-weight: 200;
+	font-size: 45px;
+	margin-bottom: 5px;
+}
+
+.client-title-subtitle{
+	font-weight: 200;
+	margin-bottom: 5px;
+}
+
+.client-info .title{
+	font-weight: 200;
+	margin-bottom: 0;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.client-info-header{
+	font-weight: 200;
+	font-size: 25px;
+}
+
+.client-info-balance-detail{
+	font-weight: 150;
+}
+
+@media only screen and (max-width: 640px) {
+	.client-account-transactions table td:nth-child(1) {display: none;}
+	.client-account-transactions table th:nth-child(1) {display: none;}
+}
+
+.page-header-client{
+	margin-bottom: 0;
+}
+
+.edit-client-btn-group{
+	padding-top: 10px;
+}
+
+.alert-container{
+	padding-top:15px;
+}
+
+.alert-container .alert{
+	margin-bottom: 5px;
+}
+
+.fade-in-anim.ng-enter{
+	-webkit-animation: fadeInDown 0.5s linear;
+	-moz-animation: fadeInDown 0.5s linear;
+	animation: fadeInDown 0.5s linear;
+}
+.fade-in-anim.ng-leave{
+	-webkit-animation: fadeOutUp 0.5s linear;
+	-moz-animation: fadeOutUp 0.5s linear;
+	animation: fadeOutUp 0.5s linear;
+}
+
+.fade-horizontal-right.ng-enter, .fade-horizontal-right.ng-leave {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.fade-horizontal-right.ng-enter{
+	-webkit-animation: fadeInLeft 0.5s linear;
+	-moz-animation: fadeInLeft 0.5s linear;
+	animation: fadeInLeft 0.5s linear;
+}
+.fade-horizontal-right.ng-leave{
+	-webkit-animation: fadeOutRight 0.5s linear;
+	-moz-animation: fadeOutRight 0.5s linear;
+	animation: fadeOutRight 0.5s linear;
+}
+
+
