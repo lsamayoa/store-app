@@ -1,35 +1,26 @@
-<section data-ng-controller="ProductsController">
-    <div class="page-header">
-        <h1>New Product</h1>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Create Product</h3>
     </div>
-    <div class="col-md-12">
-        <form class="form-horizontal" data-ng-submit="create()" novalidate>
-            <fieldset>
-                <div class="form-group">
-                    <label class="control-label" for="name">Name</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Name" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="price">Price</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="price" id="price" class="form-control" placeholder="Price" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="description">Description</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="description" id="description" class="form-control" placeholder="Description" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="submit" class="btn btn-default">
-                </div>
-				<div data-ng-show="error" class="text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
-            </fieldset>
+    <div class="panel-body">
+        <form data-ng-submit="createClient()" autocomplete="off">
+            <div class="form-group col-sm-6">
+                <label>* Product Name</label>
+                <input type="text" class="form-control" data-ng-model="product.name" placeholder="Product Name">
+            </div>
+            <div class="form-group col-sm-6">
+                <label>* Price</label>
+                <input type="text" class="form-control" data-ng-model="product.price" placeholder="Price">
+            </div>
+            <div class="form-group col-sm-12">
+                <label>* Description</label>
+                <input type="text" class="form-control" data-ng-model="product.description" placeholder="Description">
+            </div>
+            <div class="form-group col-sm-12">
+                <button type="submit" class="btn btn-large btn-primary">Create Client</button>
+            </div>
         </form>
     </div>
-</section>
+    <div class="panel-footer clearfix"><small class="pull-right">* required fields</small></div>
+</div>

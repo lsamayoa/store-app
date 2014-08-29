@@ -1,3 +1,5 @@
+/*jshint eqnull:true */
+/*global inflection:false */
 'use strict';
 
 // $datasource controller
@@ -6,6 +8,12 @@ angular.module('core').controller('CrudController', ['$scope', '$state', '$datas
 		var baseName = $datasource.route,
 			singularName = inflection.singularize(baseName),
 			paramName = singularName+'Id';
+
+		$scope.$datasource = {
+			baseName: baseName,
+			singularName: singularName,
+			restangular: $datasource
+		};
 		
 	
 		$scope.find = function() {
@@ -20,8 +28,10 @@ angular.module('core').controller('CrudController', ['$scope', '$state', '$datas
 			});
 		};
 
-		$scope.create = function(user) {
-			return $datasource.post(user).then(function(response) {
+		$scope.create = function(item) {
+			var localItem = $scope[singularName];
+			if(item) localItem = item;
+			return $datasource.post(localItem).then(function(response) {
 				var stateParams = {};
 				stateParams[paramName] = response._id;
 				$state.go(baseName + '.show', stateParams);

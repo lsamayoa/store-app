@@ -1,8 +1,11 @@
 'use strict';
 
 // Clients controller
-angular.module('clients').controller('ShowClientController', ['$scope', 'Clients', '$modal',
-	function($scope, Clients, $modal ) {		
+angular.module('clients').controller('ShowClientController', ['$scope', '$stateParams', '$modal',
+	function($scope, $stateParams, $modal ) {		
+		$scope.showOne = function() {
+			$scope.findOne($stateParams.clientId);
+		};
 
 		$scope.alerts = [];
 		var amountModal = {

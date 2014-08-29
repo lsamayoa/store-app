@@ -1,8 +1,8 @@
+/*global _:false */
 'use strict';
 
-
-angular.module('core').controller('ListController', ['$scope', '$q', '$modal', 'toaster', 'modelName',
-	function ($scope, $q, $modal, toaster, modelName) {
+angular.module('core').controller('ListController', ['$scope', '$q', '$modal', 'toaster',
+	function ($scope, $q, $modal, toaster) {
 		$scope.alerts = [];
 		$scope.filter = null;
 		$scope.selection = {};
@@ -12,7 +12,7 @@ angular.module('core').controller('ListController', ['$scope', '$q', '$modal', '
 		var modal = {
 			templateUrl: '/modules/core/views/list/remove-selection-modal.client.view.html',
 			controller: ['$scope', '$modalInstance', function (scope, $modalInstance) {
-				scope.modelName = modelName;
+				scope.modelName = $scope.$datasource.baseName;
 		      	scope.ok = function () {
 					$modalInstance.close(true);
 				};
@@ -25,7 +25,7 @@ angular.module('core').controller('ListController', ['$scope', '$q', '$modal', '
 		$scope.selectAll = function ($event) {
 			var checkbox = $event.target;
   			if (checkbox.checked) {
-  				$scope.selection.items = _.pluck($scope.users, '_id');
+  				$scope.selection.items = _.pluck($scope[$scope.$datasource.baseName], '_id');
   			}else{
   				$scope.selection.items = [];
   			}
@@ -48,7 +48,7 @@ angular.module('core').controller('ListController', ['$scope', '$q', '$modal', '
 			});
 
 			$q.all(removePromises).then(function (values) {
-				toaster.pop('success', modelName + ' Deleted', 'Deleted ' + values.length + ' in total.', 5000);
+				toaster.pop('success', $scope.$datasource.baseName + ' Deleted', 'Deleted ' + values.length + ' in total.', 5000);
 			});
 		};
 	}

@@ -16,11 +16,13 @@ angular.module('clients').config(['$stateProvider', 'RestangularProvider',
 			})
 			.state('clients.show', {
 				url: '/client/:clientId',
-				templateUrl: 'modules/clients/views/view-client.client.view.html'
+				templateUrl: 'modules/clients/views/view-client.client.view.html',
+				controller: 'ShowClientController'
 			})
 			.state('clients.create', {
 				url: '/clients/create',
-				templateUrl: 'modules/clients/views/create-client.client.view.html'
+				templateUrl: 'modules/clients/views/create-client.client.view.html',
+				controller: 'CreateClientController'
 			});
 
 		RestangularProvider.setRestangularFields({

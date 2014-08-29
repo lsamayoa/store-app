@@ -36,6 +36,6 @@ angular.module('users').controller('UsersController', ['$scope', '$controller', 
 			return superFindOne(userId).then(function () {
 				delete $scope.user.password;
 			});
-		}
+		};
 	}
 ]);

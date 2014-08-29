@@ -3,18 +3,18 @@
         <h3 class="panel-title">Create Client</h3>
     </div>
     <div class="panel-body">
-        <form data-ng-submit="create()" autocomplete="off">
+        <form data-ng-submit="createClient()" autocomplete="off">
             <div class="form-group col-sm-6">
                 <label for="firstName">* First Name</label>
-                <input type="text" id="firstName" name="firstName" class="form-control" data-ng-model="firstName" placeholder="First Name">
+                <input type="text" id="firstName" name="firstName" class="form-control" data-ng-model="client.firstName" placeholder="First Name">
             </div>
             <div class="form-group col-sm-6">
                 <label for="lastName">* Last Name</label>
-                <input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="lastName" placeholder="Last Name">
+                <input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="client.lastName" placeholder="Last Name">
             </div>
             <div class="form-group col-sm-12">
                 <label for="email">* Email</label>
-                <input type="text" id="email" name="emails[0]" class="form-control" data-ng-model="email" placeholder="Email">
+                <input type="text" id="email" name="emails[0]" class="form-control" data-ng-model="client.emails[0]" placeholder="Email">
             </div>
             <div class="form-group col-sm-12">
                 <button type="submit" class="btn btn-large btn-primary">Create Client</button>
